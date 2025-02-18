@@ -1,0 +1,18 @@
+p{
+    font-size:18pt;
+}
+#p1:hover{
+    color:blue;
+}
+.tag_violeta{
+    color:violet;
+}
+
+div{
+    font-size:24pt;
+    color:white;
+}
+div:hover{
+    background:black;
+}
+

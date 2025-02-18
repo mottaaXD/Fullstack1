@@ -1,0 +1,68 @@
+
+    
+    .home{
+        font-size:24pt;
+        color:blue;
+        
+    }
+    .home:hover{
+        color:purple;
+    }
+    .projects{
+        font-size:24pt;
+        color:blue;
+        padding: 1%;
+    }
+    .projects:hover{
+        color:purple;
+    }
+    
+    h1{
+        font-size:40px;
+    }
+    h2{
+        font-size: 40px;
+    }
+    h3{
+        font-size:40px;
+    }
+    #descr{
+        font-size:30px;
+    }
+    ul{
+        font-weight: bold;
+        font-size: 40px;
+    }
+    li{
+     
+        font-size:30px;
+        padding-left: 20px;
+    }
+    #link1{
+        color: blue;
+        font-size:25px;
+    }
+    #link1:hover{
+        color:purple;
+    }
+    #link2{
+        font-size:25px;
+    }
+    #link2:hover{
+        color:purple;
+    }
+    #link3{
+        font-size: 25px;
+    }
+    #link3:hover{
+        color:purple;
+    }
+    #i1{
+        font-size:25px;
+    }
+    #i2{
+        font-size:25px;
+    }
+    #i3{
+        font-size: 25px;
+    }

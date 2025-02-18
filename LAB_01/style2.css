@@ -1,0 +1,23 @@
+ 
+    .home{
+        font-size:24pt;
+        color:blue;
+        
+    }
+    .home:hover{
+        color:purple;
+    }
+    .projects{
+        font-size:24pt;
+        color:blue;
+        padding: 1%;
+    }
+    .projects:hover{
+        color:purple;
+    }
+
+    #tabela th, td{
+        font-size: 17pt;
+        border:1px solid black;;
+    }
+    

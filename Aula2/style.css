@@ -1,0 +1,24 @@
+p{
+    color:blue;
+    font-size: 18pt;
+}
+
+#p1{
+    color:green;
+}
+.tag_amarela{
+    color:yellow;
+}
+
+div p{
+    color:coral;
+    
+}
+.tag_amarela:hover{
+    background-color:brown;
+}
+
+
+body{
+    background-color: black;
+}
