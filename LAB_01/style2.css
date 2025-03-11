@@ -30,11 +30,11 @@
         
     }
 
-    #copyLink{
+    .copyLink{
         color:blue;
     }
 
-    #copyLink:hover{
+    .copyLink:hover{
         color:purple;
     }
 
