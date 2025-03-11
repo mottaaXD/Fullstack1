@@ -150,6 +150,7 @@ a{
     align-items: center;
     background-color: bisque;
     height: 200px;
+    flex-wrap: nowrap;
 }
 
 h6{
@@ -166,10 +167,10 @@ h6{
 
 #esquerda{
     position: absolute;
-    left:300px;
+    left:50px;
 }
 
 #direita{
     position: absolute;
-    right: 300px;
+    right: 50px;
 }

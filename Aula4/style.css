@@ -1,0 +1,40 @@
+.flex-container{
+    background-color: blue;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    flex-grow: 1;
+    
+}
+
+.flex-container div{
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+#d5{
+    order: 1;
+    flex-grow: 2;
+    align-self: center;
+}
+
+#d14{
+    order: 2;
+    flex-grow: 3;
+    align-self: flex-end;
+}
+
+#d24{
+    order:4;
+    flex-basis: 200px;
+    align-self:center;
+}
+
+@media (max-width: 800px) {
+    .flex-container{
+        flex-direction: column;
+    }
+}
