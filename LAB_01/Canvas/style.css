@@ -1,0 +1,15 @@
+
+#canvas{
+    display: flex;
+    margin: 0 auto;
+    border:2px solid black;
+}
+
+input{
+    display: flex;
+    margin: 0 auto;
+}
+
+#canvas1{
+    border:2px solid black;
+}
