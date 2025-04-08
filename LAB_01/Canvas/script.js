@@ -1,8 +1,7 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-let canvas2 = document.getElementById("canvas");
-let ctx2 = canvas.getContext("2d");
+
 
 function desenhar_quadrados(){
     ctx.fillStyle = 'blue';
@@ -77,14 +76,12 @@ function desenhar_arcos(){
     ctx.arc(150,150,90, 1*Math.PI, 1.25*Math.PI);
     ctx.stroke();
     ctx.closePath();
-    //fazer
     ctx.beginPath();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = 'black';
-    ctx.arc(150,150,90, 0*Math.PI, 0.5*Math.PI);
+    ctx.strokeStyle = 'green';
+    ctx.arc(150,150,90, 1.75*Math.PI, 2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-    //
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.strokeStyle = 'green';
@@ -108,7 +105,7 @@ function desenhar_arcos(){
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.fillStyle = 'yellow';
-    ctx.strokeStyle = 'green'
+    ctx.strokeStyle = 'green';
     ctx.arc(225, 213.75,15,0*Math.PI,2*Math.PI);
     ctx.stroke();
     ctx.fill();
@@ -116,9 +113,9 @@ function desenhar_arcos(){
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.strokeStyle = 'green';
-    ctx.fillStyle = 'cyan'
+    ctx.fillStyle = 'cyan';
     ctx.arc(150,300,30, 0*Math.PI, 2*Math.PI);
-    ctx.fill()
+    ctx.fill();
     ctx.stroke();
     ctx.closePath();
 }
@@ -126,8 +123,99 @@ function desenhar_arcos(){
 function escrever(){
     ctx.beginPath();
     ctx.lineWidth = 1.25;
-    ctx.font = "20px Arial"
+    ctx.font = "20px Arial";
     ctx.textAlign = "center";
     ctx.fillText("Canvas",150,50);
     ctx.closePath();
+}
+
+let canvas2 = document.getElementById("canvas2");
+let ctx2 = canvas2.getContext("2d");
+
+function desenhar_fundo(){
+    document.getElementById("canvas2").style.backgroundColor="aquamarine";
+}
+
+
+function desenhar_quadrados2(){
+    ctx2.fillStyle = 'brown';
+    ctx2.fillRect(100,100,100,100);
+    ctx2.fillStyle = 'gray';
+    ctx2.fillRect(0, 200, 300, 100);
+    ctx2.fillStyle = 'blue';
+    ctx2.fillRect(110,125, 25, 25);
+    ctx2.fillStyle = 'blue';
+    ctx2.fillRect(165,125, 25, 25);
+    ctx2.fillStyle = 'darkgray';
+    ctx2.fillRect(137.5, 150, 25, 50);
+    ctx2.fillStyle = 'blue';
+    ctx2.fillRect(0,200,50,100);
+    ctx2.fillStyle = 'blue';
+    ctx2.fillRect(0,250,100,50);
+    ctx2.fillStyle = 'brown';
+    ctx2.fillRect(50,150,25,50);
+    //arvore2
+    ctx2.fillStyle = 'brown';
+    ctx2.fillRect(250,225,25,50);
+}
+
+function desenhar_linhas2(){
+    ctx2.beginPath();
+    ctx2.lineWidth = 2;
+    ctx2.strokeStyle = 'coral';
+    ctx2.fillStyle=  'coral';
+    ctx2.moveTo(100,100);
+    ctx2.lineTo(150,50);
+    ctx2.lineTo(200, 100);
+    ctx2.fill();
+    ctx2.stroke();
+    ctx2.closePath();
+}
+
+function desenhar_arcos2(){
+    ctx2.beginPath();
+    ctx2.lineWidth = 2;
+    ctx2.strokeStyle = 'blue';
+    ctx2.fillStyle='blue'
+    ctx2.arc(0,200,49, 0*Math.PI, 2*Math.PI);
+    ctx2.stroke();
+    ctx2.fill();
+    ctx2.closePath();
+    ctx2.beginPath();
+    ctx2.beginPath();
+    ctx2.lineWidth = 2;
+    ctx2.strokeStyle = 'blue';
+    ctx2.fillStyle='blue'
+    ctx2.arc(100,300,49, 0*Math.PI, 2*Math.PI);
+    ctx2.stroke();
+    ctx2.fill();
+    ctx2.closePath();
+    ctx2.beginPath();
+    ctx2.lineWidth = 2;
+    ctx2.strokeStyle = 'yellow';
+    ctx2.fillStyle='yellow'
+    ctx2.arc(225,50,30, 0*Math.PI, 2*Math.PI);
+    ctx2.stroke();
+    ctx2.fill();
+    ctx2.closePath();
+    ctx2.beginPath();
+    ctx2.lineWidth = 2;
+    ctx2.strokeStyle = 'green';
+    ctx2.fillStyle='green'
+    ctx2.arc(65,125,30, 0*Math.PI, 2*Math.PI);
+    ctx2.stroke();
+    ctx2.fill();
+    ctx2.closePath();
+    //arvore2
+    ctx2.beginPath();
+    ctx2.lineWidth = 2;
+    ctx2.strokeStyle = 'green';
+    ctx2.fillStyle='green'
+    ctx2.arc(265,200,30, 0*Math.PI, 2*Math.PI);
+    ctx2.stroke();
+    ctx2.fill();
+    ctx2.closePath();
+
+    
+
 }

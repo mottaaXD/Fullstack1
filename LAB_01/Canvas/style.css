@@ -1,3 +1,6 @@
+body{
+    background-color:bisque;
+}
 
 #canvas{
     display: flex;
@@ -10,6 +13,8 @@ input{
     margin: 0 auto;
 }
 
-#canvas1{
-    border:2px solid black;
+#canvas2{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 80px;
 }
