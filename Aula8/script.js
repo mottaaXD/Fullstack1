@@ -74,8 +74,32 @@ class Retangulo {
 let canvas = document.getElementById("canvas");
 let ctx1 = canvas.getContext("2d");
 
-let retangulo_1 = new Retangulo('blue', 'red', 3, 200, 200, 20, 20);
+let retangulo_1 = new Retangulo('blue', 'red', 3, 0, 0, 20, 20);
+let retangulo_2 = new Retangulo('blue', 'green', 3, 200, 200, 20, 20); 
 
-retangulo_1.desenhe(ctx1);
-retangulo_1.x = 100;
-retangulo_1.desenhe(ctx1);
+
+function animacao(){
+    if(retangulo_1.x == 400){
+        retangulo_1.x = 0;
+    }
+    
+    retangulo_1.x += 2;
+    ctx1.clearRect(0,0,400,400);
+    retangulo_1.desenhe(ctx1);
+
+
+    retangulo_2.desenhe(ctx1);
+
+
+    requestAnimationFrame(animacao);
+}
+
+animacao();
+
+
+document.addEventListener('keydown', function(evento){
+    let tecla = evento.key;
+    console.log(tecla);
+
+    if(tecla == 'ArrowUp'){retangulo_2.y -= 1}
+})
