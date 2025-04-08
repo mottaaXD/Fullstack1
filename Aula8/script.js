@@ -76,7 +76,7 @@ let ctx1 = canvas.getContext("2d");
 
 let retangulo_1 = new Retangulo('blue', 'red', 3, 0, 0, 20, 20);
 let retangulo_2 = new Retangulo('blue', 'green', 3, 200, 200, 20, 20); 
-
+let retangulo_3 = new Retangulo('blue', 'yellow', 3, 200, 200, 20, 20);
 
 function animacao(){
     if(retangulo_1.x == 400){
@@ -90,6 +90,8 @@ function animacao(){
 
     retangulo_2.desenhe(ctx1);
 
+    retangulo_3.desenhe(ctx1);
+
 
     requestAnimationFrame(animacao);
 }
@@ -101,5 +103,20 @@ document.addEventListener('keydown', function(evento){
     let tecla = evento.key;
     console.log(tecla);
 
-    if(tecla == 'ArrowUp'){retangulo_2.y -= 1}
+    let velocidade = 5;
+    if(tecla == 'ArrowUp'){retangulo_2.y -= velocidade}
+    if(tecla == 'ArrowDown'){retangulo_2.y += velocidade}
+    if(tecla == 'ArrowLeft'){retangulo_2.x -= velocidade}
+    if(tecla == 'ArrowRight'){retangulo_2.x += velocidade}
+})
+
+document.addEventListener('mousemove', function(evento){
+    let rect = canvas.getBoundingClientRect();
+    let x_mouse = evento.clientX - rect.left;
+    let y_mouse = evento.clientY - rect.top;
+    console.log(x_mouse, y_mouse);
+
+    retangulo_3.x = x_mouse;
+    retangulo_3.y = y_mouse;
+
 })
