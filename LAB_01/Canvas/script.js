@@ -35,7 +35,6 @@ desenhar_linha("blue", 2, 0, 0, 150, 150);
 desenhar_linha("red", 2, 300, 0, 150, 150); 
 
 
-
 function desenhar_arco(corContorno, largura, corPreenchimento, centroX, centroY, raio, anguloInicial, anguloFinal) {
     ctx.beginPath();
     ctx.lineWidth = largura;
@@ -50,7 +49,6 @@ function desenhar_arco(corContorno, largura, corPreenchimento, centroX, centroY,
     ctx.stroke();
     ctx.closePath();
 }
-
 
 
 desenhar_arco('green', 2, '', 150, 150, 60, 1 * Math.PI, 2 * Math.PI);
@@ -110,8 +108,6 @@ function desenhar_linhas2(cor, corP, largura, x1, y1, x2, y2, x3, y3) {
 
 desenhar_linhas2('coral','coral', 2, 100, 100, 150, 50, 200, 100, 200,100);
 
-
-
 function desenhar_arcos2(corContorno, largura, corPreenchimento, centroX, centroY, raio, anguloInicial, anguloFinal) {
     ctx2.beginPath();
     ctx2.lineWidth = largura;
@@ -126,7 +122,6 @@ function desenhar_arcos2(corContorno, largura, corPreenchimento, centroX, centro
     ctx2.stroke();
     ctx2.closePath();
 }
-
 
 desenhar_arcos2('blue', 2, 'blue', 0, 200, 49, 0 * Math.PI, 2 * Math.PI);
 desenhar_arcos2('blue', 2, 'blue', 100, 300, 49, 0 * Math.PI, 2 * Math.PI);
