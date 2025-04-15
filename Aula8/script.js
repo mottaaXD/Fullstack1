@@ -116,7 +116,21 @@ document.addEventListener('mousemove', function(evento){
     let y_mouse = evento.clientY - rect.top;
     console.log(x_mouse, y_mouse);
 
-    retangulo_3.x = x_mouse;
-    retangulo_3.y = y_mouse;
+    if (x_mouse < 0) {
+        retangulo_3.x = 0;
+    }
+    else if (x_mouse > canvas.width - retangulo_3.largura){
+        retangulo_3.x = canvas.width - retangulo_3.largura;
+    }
+    else {
+        retangulo_3.x = x_mouse;
+    }
 
-})
+    if (y_mouse < 0) {
+        retangulo_3.y = 0;
+    } else if (y_mouse > canvas.height - retangulo_3.altura) {
+        retangulo_3.y = canvas.height - retangulo_3.altura;
+    } else {
+        retangulo_3.y = y_mouse;
+    }
+});

@@ -33,19 +33,30 @@ function getRandomPosition(maxWidth, maxHeight, enemyWidth, enemyHeight) {
     return { x, y };
 }
 
+// Função para checar se clicou no inimigo
+function isClicked(enemy, mouseX, mouseY) {
+    return (
+        mouseX >= enemy.x &&
+        mouseX <= enemy.x + enemy.width &&
+        mouseY >= enemy.y &&
+        mouseY <= enemy.y + enemy.height
+    );
+}
+
 // Tamanho dos inimigos
 let enemyWidth = 50;
 let enemyHeight = 100;
 
-// Posições aleatórias
-let pos1 = getRandomPosition(canvas.width, canvas.height, enemyWidth, enemyHeight);
-let pos2 = getRandomPosition(canvas.width, canvas.height, enemyWidth, enemyHeight);
-let pos3 = getRandomPosition(canvas.width, canvas.height, enemyWidth, enemyHeight);
+// Criar inimigos com posições aleatórias
+function createEnemy(health, damage, color) {
+    let pos = getRandomPosition(canvas.width, canvas.height, enemyWidth, enemyHeight);
+    return new Enemy(health, damage, color, pos.x, pos.y, enemyWidth, enemyHeight);
+}
 
-// Criação dos inimigos
-let enemy1 = new Enemy(70, 10, "red", pos1.x, pos1.y, enemyWidth, enemyHeight);
-let enemy2 = new Enemy(100, 20, "blue", pos2.x, pos2.y, enemyWidth, enemyHeight);
-let enemy3 = new Enemy(150, 40, "green", pos3.x, pos3.y, enemyWidth, enemyHeight);
+// Criação inicial
+let enemy1 = createEnemy(70, 10, "red");
+let enemy2 = createEnemy(100, 20, "blue");
+let enemy3 = createEnemy(150, 40, "green");
 
 // Desenhar todos
 function drawAll() {
@@ -55,7 +66,25 @@ function drawAll() {
     enemy3.draw(ctx);
 }
 
-// Desenha ao clicar no botão
+// Botão "Começar"
 document.getElementById("butao").addEventListener("click", function () {
+    drawAll();
+});
+
+// Clique no canvas
+canvas.addEventListener("click", function (event) {
+    let rect = canvas.getBoundingClientRect();
+    let mouseX = event.clientX - rect.left;
+    let mouseY = event.clientY - rect.top;
+
+    // Verifica cada inimigo
+    if (isClicked(enemy1, mouseX, mouseY)) {
+        enemy1 = createEnemy(70, 10, "red");
+    } else if (isClicked(enemy2, mouseX, mouseY)) {
+        enemy2 = createEnemy(100, 20, "blue");
+    } else if (isClicked(enemy3, mouseX, mouseY)) {
+        enemy3 = createEnemy(150, 40, "green");
+    }
+
     drawAll();
 });
