@@ -1,0 +1,68 @@
+body{
+    background-color: gray;
+}
+
+h1{
+    font-size: 25pt;
+    text-align: center;
+}
+
+#p1{
+    font-size: 17pt;
+    text-align: center;
+}
+
+#num{
+    font-size:12pt;
+}
+
+#div1{
+    padding-top: 40px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#botao{
+    font-size: 20pt;
+    width: 220px;
+    height: 50px;
+}
+
+#div2{
+    display: flex;
+    justify-content: center;
+}
+
+#p2{
+    font-size:22pt;
+}
+
+h2{
+    font-size: 20pt;
+    text-align: center;
+}
+
+#div3{
+    display: flex;
+    justify-content: center;
+}
+
+#p3{
+    padding-top: -50px;
+    font-size:17pt;
+}
+
+h3{
+    font-size: 20pt;
+    text-align: center;
+}
+
+#div4{
+    display: flex;
+    justify-content: center;
+}
+
+#p4{
+    padding-top: -50px;
+    font-size:17pt;
+}

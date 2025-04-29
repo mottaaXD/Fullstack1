@@ -88,11 +88,3 @@ app.post('/logar', function(requisicao, resposta){
         }
     })
 })
-
-app.post('/cadastroLab', function(requisicao, resposta){
-    resposta.redirect("LAB_01/GET_POST_TEMPLATE/cadastro.html");
-})
-
-app.post('/loginLab', function(requisicao, resposta){
-    resposta.redirect("LAB_01/GET_POST_TEMPLATE/login.html");
-})

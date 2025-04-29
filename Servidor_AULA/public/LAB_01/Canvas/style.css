@@ -1,0 +1,21 @@
+body{
+    background-color:bisque;
+}
+
+#canvas{
+    display: flex;
+    margin: 0 auto;
+    border:2px solid black;
+}
+
+input{
+    display: flex;
+    margin: 0 auto;
+}
+
+#canvas2{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 80px;
+    background-color: aquamarine;
+}
