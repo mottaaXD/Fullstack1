@@ -46,3 +46,22 @@ app.post('/cadastra', function(requisicao, resposta){
 app.post('/login', function(requisicao, resposta){
     resposta.redirect("LAB_01/GET_POST_TEMPLATE/login.html");
 })
+
+app.post('/cadastrar', function(requisicao, resposta){
+    let usuario = requisicao.body.usuario;
+    let senha = requisicao.body.senha;
+
+    console.log(usuario, senha);
+
+    resposta.render("resposta.ejs", {status: "Usuario cadastrado com sucesso", usuario, senha})
+})
+
+app.post('/logar', function(requisicao, resposta){
+    let usuario = requisicao.body.usuario;
+    let senha = requisicao.body.senha;
+
+    console.log(usuario, senha);
+
+    resposta.render("resposta.ejs", {status: "Usuario logado com sucesso", usuario, senha})
+})
+
