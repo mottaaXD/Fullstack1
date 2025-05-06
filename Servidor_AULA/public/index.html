@@ -47,5 +47,20 @@
             <input type="submit" value="Clique aqui para gerar divs!">
 
         </form>
+
+        <h2>Alterar senha do usuário</h2>
+        <form action="/atualizar_senha" method="post">
+            <p>Login: <input type="text" name="login"></p>
+            <p>Senha: <input type="password" name="senha"></p>
+            <p>Nova senha: <input type="password" name="novasenha"></p>
+            <input type="submit" value="Atualizar!">
+        </form>
+
+        <h2>Remover usuário</h2>
+        <form action="/remover_usuario" method="post">
+            <p>Login: <input type="text" name="login"></p>
+            <p>Senha: <input type="password" name="senha"></p>
+            <input type="submit" value="Remover!">
+        </form>
     </body>
 </html>

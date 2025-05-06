@@ -32,67 +32,17 @@ console.log("Servidor rodando...".rainbow);
 
 // Métodos
 
-app.get("/inicio", function(requisicao, resposta){
-    resposta.redirect("LAB_01/index.html");
-
-})
-
-app.post("/inicio", function(requisicao, resposta){
-    resposta.redirect("LAB_01/index.html");
+app.get("/", function(requisicao, resposta){
+    resposta.redirect("LAB_01/projects.html");
 
 })
 
 
-app.post("/cadastrar", function (requisicao, resposta) {
-    let nome = requisicao.body.Nome;
-    let login = requisicao.body.login;
-    let senha = requisicao.body.Senha;
-    let nasc = requisicao.body.Nascimento;
 
-    console.log(nome, login, senha, nasc);
-
-    var data = { db_nome: nome, db_login: login, db_senha: senha, db_nasc: nasc };
-
-    usuarios.insertOne(data, function (err) {
-        if (err) {
-            resposta.render("resposta", { status: "Erro", nome, login, senha, nasc });
-        } else {
-            resposta.render("resposta", { status: "Sucesso", nome, login, senha, nasc });
-        }
-    });
-});
-
-
-app.get("/for_ejs", function(requisicao, resposta){
-    let valor = requisicao.query.valor;
-    resposta.render("exemplo_for",{valor});
-
-})
-
-app.post('/logar', function(requisicao, resposta){
-    let login = requisicao.body.login;
-    let senha = requisicao.body.Senha;
-    console.log(login,senha);
-
-    var data = {db_login: login, db_senha: senha};
-    
-    usuarios.find(data).toArray(function(err, items){
-        if(items.length == 0){
-            resposta.render("resposta_login",{status: "usuario/senha nao encontrado!"})
-        }
-        else if(err){
-            resposta.render("resposta_login",{status: "ERRO AO LOGAR"})
-        }
-        else{
-            resposta.render("resposta_login",{status: "usuario "+login+" logado"})
-        }
-    })
-})
-
-app.post('/cadastroLab', function(requisicao, resposta){
+app.post('/cadastra', function(requisicao, resposta){
     resposta.redirect("LAB_01/GET_POST_TEMPLATE/cadastro.html");
 })
 
-app.post('/loginLab', function(requisicao, resposta){
+app.post('/login', function(requisicao, resposta){
     resposta.redirect("LAB_01/GET_POST_TEMPLATE/login.html");
 })

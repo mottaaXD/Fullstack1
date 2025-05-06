@@ -88,3 +88,52 @@ app.post('/logar', function(requisicao, resposta){
         }
     })
 })
+
+
+app.post("/atualizar_senha", function(requisicao, resposta){
+    let login = requisicao.body.login;
+    let senha = requisicao.body.senha;
+    let novasenha = requisicao.body.novasenha;
+
+    let data = {db_login: login, db_senha: senha}
+    let new_data = {$set: {db_senha: novasenha}}
+
+    usuarios.updateOne(data, new_data, function(err, result){
+        console.log(result);
+
+        if(result.modifiedCount == 0) {
+            resposta.render("resposta_login",{status: "Usuario/Senha não encontrado!"})
+        }
+        else if(err) {
+            resposta.render("resposta_login", {status: "Erro ao atualizar usuário!"})
+        }
+    
+        else{
+            resposta.render("resposta_login", {status: "Usuario atualizado com sucesso!"})
+        }
+    })
+
+
+})
+
+app.post("/remover_usuario", function(requisicao, resposta){
+    let login = requisicao.body.login;
+    let senha = requisicao.body.senha;
+
+    let data = {db_login: login, db_senha: senha}
+
+    usuarios.deleteOne(data, function(err, result){
+        console.log(result)
+        if(result.deletedCount == 0) {
+            resposta.render("resposta_login",{status: "Usuario/Senha não encontrado!"})
+        }
+        else if(err) {
+            resposta.render("resposta_login", {status: "Erro ao remover usuário!"})
+        }
+    
+        else{
+            resposta.render("resposta_login", {status: "Usuario removido com sucesso!"})
+        }
+
+    })
+})
