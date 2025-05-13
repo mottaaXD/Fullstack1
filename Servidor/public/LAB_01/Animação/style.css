@@ -1,9 +1,14 @@
 #canvas{
-    display: flex;
-    margin:0 auto;
     border: 2px solid black;
+
 }
 
 body{
+    display: flex;
+    flex-direction: column;
+    margin:0;
+    align-items: center;
+    justify-content: center;
     background-color: bisque;
+    height:100vh;
 }
