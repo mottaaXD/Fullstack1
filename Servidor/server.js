@@ -8,7 +8,7 @@ const MongoClient = mongodb.MongoClient;
 const uri = "mongodb+srv://motta:Fullstack2025@cluster0.rv6nm6u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
-var dbo = client.db("AulaBD");
+var dbo = client.db("labBD");
 var usuarios = dbo.collection("usuarios")
 
 var app = express();
@@ -53,7 +53,18 @@ app.post('/cadastrar', function(requisicao, resposta){
 
     console.log(usuario, senha);
 
-    resposta.render("resposta.ejs", {status: "Usuario cadastrado com sucesso", usuario, senha})
+    var data = {db_usuario: usuario, db_senha: senha}
+
+    usuarios.insertOne(data, function(err){
+        if (err){
+            resposta.render("resposta.ejs", {status: "Erro", usuario, senha})
+        }
+        else{
+            resposta.render("resposta.ejs", {status: "Sucesso", usuario, senha})
+        }
+    })
+
+
 })
 
 app.post('/logar', function(requisicao, resposta){
@@ -62,6 +73,27 @@ app.post('/logar', function(requisicao, resposta){
 
     console.log(usuario, senha);
 
-    resposta.render("resposta.ejs", {status: "Usuario logado com sucesso", usuario, senha})
+    var data = {db_usuario: usuario, db_senha: senha}
+
+    usuarios.find(data).toArray(function(err, items){
+        if(items.length == 0){
+            resposta.render("resposta_login.ejs", {status: "usuario/senha nao encontrado!"})
+        }
+        else if(err){
+            resposta.render("resposta_login.ejs", {status: "ERRO AO LOGAR"})
+        }
+        else{
+            resposta.render("resposta_login.ejs", {status: "usuario "+usuario+" logado"})
+        }
+    })
+   
+})
+
+app.post('/redirectBlog', function(requisicao, resposta){
+    resposta.redirect("LAB_01/Blog/cadastrar_blog.html")
+})
+
+app.get('/blog', function(requisicao, resposta){
+    resposta.render("blog.ejs")
 })
 
