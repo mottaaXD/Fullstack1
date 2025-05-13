@@ -3,12 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>BLOG</title>
-        <link href="style.css" rel="stylesheet">
+        <link href="style2.css" rel="stylesheet">
     </head>
     <body>
         <h1>Blog</h1>
         <form method="post" action="/redirectBlog">
             <input type="submit" value="Cadastrar Post">
         </form>
+
+        <%for (var i = 0; i < post.length; i++){%>
+            <div id="item_lista" class="postDiv">
+              <p>Título: <%= post[i].db_title %></p>
+              <p>Resumo: <%= post[i].db_resumo %></p>
+              <p>Conteúdo: <%= post[i].db_content %></p>
+              <br>
+            </div>
+        <%}%>
+
+
     </body>
 </html>

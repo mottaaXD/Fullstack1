@@ -10,6 +10,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 var dbo = client.db("labBD");
 var usuarios = dbo.collection("usuarios")
+var posts = dbo.collection("posts")
 
 var app = express();
 app.use(express.static('./public'));
@@ -89,11 +90,41 @@ app.post('/logar', function(requisicao, resposta){
    
 })
 
+
+//BLOG
+
 app.post('/redirectBlog', function(requisicao, resposta){
     resposta.redirect("LAB_01/Blog/cadastrar_blog.html")
 })
 
 app.get('/blog', function(requisicao, resposta){
-    resposta.render("blog.ejs")
+
+
+    posts.find({}).toArray(function(err, items){
+        resposta.render("blog.ejs", {post: items})
+    })
+
+    
+    
 })
+
+app.post("/cadastrarPost", function(requisicao, resposta){
+    let title = requisicao.body.title;
+    let resumo = requisicao.body.resumo;
+    let content = requisicao.body.content;
+
+    var data = {db_title: title, db_resumo: resumo, db_content: content}
+
+    posts.insertOne(data, function(err){
+        if(err){
+            resposta.render("respostaPost.ejs", {status: "Erro ao cadastrar post"});
+        }
+        else{
+            resposta.render("respostaPost.ejs", {status:"Post cadastrado!"})
+        }
+    })
+})
+
+
+
 
